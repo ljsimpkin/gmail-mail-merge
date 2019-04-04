@@ -18,11 +18,12 @@ function getColumnHeadings (sheet) {
   return columns
 }
 
-function getLatestDraft () {
+function getLatestDraft () { 
   var drafts = GmailApp.getDraftMessages()
-  if (drafts.length === 0) return null
-  else return drafts[0]
-}
+  var drafts = GmailApp.getDrafts()[0]
+  var message = drafts.getMessage()
+  if (message.length === 0) return null 
+  else return message }
 
 function main () {
   var quota = MailApp.getRemainingDailyQuota()
